@@ -74,10 +74,16 @@ def md_escape(s: str) -> str:
     return (s or "").replace("\r", " ").replace("\n", " ").strip()
 
 
+def _truncate_desc(desc: str, limit: int = 140) -> str:
+    if len(desc) <= limit:
+        return desc
+    return desc[: max(0, limit - 3)] + "..."
+
+
 def fmt_repo_line(r: dict[str, Any]) -> str:
     name = r["name"]
     url = r["html_url"]
-    desc = md_escape(r.get("description") or "")
+    desc = _truncate_desc(md_escape(r.get("description") or ""))
     lang = r.get("language") or ""
     stars = r.get("stargazers_count")
     fork = r.get("fork")
@@ -89,7 +95,8 @@ def fmt_repo_line(r: dict[str, Any]) -> str:
     if fork:
         tags.append("`fork`")
     if isinstance(stars, int) and stars > 0:
-        tags.append(f"`{stars} stars`")
+        star_word = 'star' if stars == 1 else 'stars'
+        tags.append(f"`{stars} {star_word}`")
     if pushed:
         tags.append(f"`updated {pushed}`")
 
@@ -98,8 +105,8 @@ def fmt_repo_line(r: dict[str, Any]) -> str:
         tail = " " + " ".join(tags)
 
     if desc:
-        return f"- [{name}]({url}) - {desc}{tail}"
-    return f"- [{name}]({url}){tail}"
+        return f"- :small_blue_diamond: [**{name}**]({url}) - {desc}{tail}"
+    return f"- :small_blue_diamond: [**{name}**]({url}){tail}"
 
 
 def replace_block(text: str, start: str, end: str, block: str) -> str:

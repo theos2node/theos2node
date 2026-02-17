@@ -1,7 +1,8 @@
-![Theo header](assets/header.svg)
+# Hi, I'm Theo :wave:
 
-<p align="center">
-  <a href="https://github.com/theos2node"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-theos2node-111827?style=flat" /></a>
+:round_pushpin: US-based  |  :house: Home automation  |  :robot: LLM agents  |  :wrench: TypeScript/Node + Python
+
+<p>
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=111827" />
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
@@ -10,32 +11,29 @@
   <img alt="Homebridge" src="https://img.shields.io/badge/Homebridge-0F172A?style=flat" />
 </p>
 
-### Focus
+Deep in home-automation + agent tooling mode. I like building things that turn messy real-world ops into simple, safe commands.
 
-I build AI-powered Homebridge control and tooling: chat-driven ops, guardrails, scheduling, monitoring, and automation.
+:link: Featured
 
-### Highlights
+- :house: [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM operations for Homebridge: control accessories, scheduling, monitoring, watchdog, and guardrailed skills.
+- :satellite: [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi radar map for local network device discovery and distance calibration.
+- :microphone: [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-powered macOS dictation replacement.
 
-<p>
-  <a href="https://github.com/theos2node/homebridge-llm-control"><img alt="homebridge-llm-control" src="https://github-readme-stats.vercel.app/api/pin/?username=theos2node&repo=homebridge-llm-control" /></a>
-  <a href="https://github.com/theos2node/RSSICartographer"><img alt="RSSICartographer" src="https://github-readme-stats.vercel.app/api/pin/?username=theos2node&repo=RSSICartographer" /></a>
-</p>
-
-### Current Projects
+## Current Projects
 
 <!-- current-projects:start -->
-- [homebridge-llm-control](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM operations for Homebridge: control existing accessories, scheduling, monitoring, watchdog, and guardrailed skills. `TypeScript` `updated 2026-02-17`
-- [RSSICartographer](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi radar map for local network device discovery and distance calibration `Python` `updated 2026-02-17`
-- [Full-Whisper-Dictation-for-Mac](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - For anyone unfortunate enough to stumble upon this, this is my first repository. I'm using OpenAI's Whisper model to replace Mac dictation. As a dyslexic coder, it's tough to type as fast as I speak, making dictation more convenient than typing. The built-in function is outdated, so I aim to create a suitable replacement `Python` `1 stars` `updated 2025-01-24`
+- :small_blue_diamond: [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM operations for Homebridge: control existing accessories, scheduling, monitoring, watchdog, and guardrailed skills. `TypeScript` `updated 2026-02-17`
+- :small_blue_diamond: [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi radar map for local network device discovery and distance calibration `Python` `updated 2026-02-17`
+- :small_blue_diamond: [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - For anyone unfortunate enough to stumble upon this, this is my first repository. I'm using OpenAI's Whisper model to replace Mac dictatio... `Python` `1 star` `updated 2025-01-24`
 <!-- current-projects:end -->
 
 <details>
 <summary>All public repos</summary>
 
 <!-- repos:start -->
-- [homebridge-llm-control](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM operations for Homebridge: control existing accessories, scheduling, monitoring, watchdog, and guardrailed skills. `TypeScript` `updated 2026-02-17`
-- [RSSICartographer](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi radar map for local network device discovery and distance calibration `Python` `updated 2026-02-17`
-- [Full-Whisper-Dictation-for-Mac](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - For anyone unfortunate enough to stumble upon this, this is my first repository. I'm using OpenAI's Whisper model to replace Mac dictation. As a dyslexic coder, it's tough to type as fast as I speak, making dictation more convenient than typing. The built-in function is outdated, so I aim to create a suitable replacement `Python` `1 stars` `updated 2025-01-24`
+- :small_blue_diamond: [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM operations for Homebridge: control existing accessories, scheduling, monitoring, watchdog, and guardrailed skills. `TypeScript` `updated 2026-02-17`
+- :small_blue_diamond: [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi radar map for local network device discovery and distance calibration `Python` `updated 2026-02-17`
+- :small_blue_diamond: [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - For anyone unfortunate enough to stumble upon this, this is my first repository. I'm using OpenAI's Whisper model to replace Mac dictatio... `Python` `1 star` `updated 2025-01-24`
 <!-- repos:end -->
 
 </details>
