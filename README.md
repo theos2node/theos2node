@@ -14,6 +14,7 @@
 ## Current Projects
 
 <!-- current-projects:start -->
+- :small_blue_diamond: [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Second-brain iOS app.
 - :house: [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.
 - :satellite: [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi RSSI/radar mapping tool.
 - :microphone: [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.
