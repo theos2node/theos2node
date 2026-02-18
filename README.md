@@ -8,7 +8,8 @@
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
   <img alt="Node.Js" src="https://img.shields.io/badge/Node.Js-339933?style=flat" />
   <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white" />
-  <img alt="Claude" src="https://img.shields.io/badge/Claude-111827?style=flat" />
+  <img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-111827?style=flat&logo=openai&logoColor=white" />
+  <img alt="Claude" src="https://img.shields.io/badge/Claude-111827?style=flat&logo=anthropic&logoColor=white" />
   <img alt="macOS" src="https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white" />
 </p>
 
