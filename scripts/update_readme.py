@@ -74,19 +74,33 @@ def md_escape(s: str) -> str:
     return (s or "").replace("\r", " ").replace("\n", " ").strip()
 
 
-def first_sentence(desc: str) -> str:
+def short_desc(name: str, desc: str) -> str:
+    n = (name or "").lower()
     d = md_escape(desc)
+    overrides = {
+        "full-whisper-dictation-for-mac": "Whisper-based macOS dictation replacement.",
+        "homebridge-llm-control": "Chat + LLM ops for Homebridge.",
+        "rssicartographer": "Live macOS Wi-Fi RSSI/radar mapping tool.",
+    }
+    if n in overrides:
+        return overrides[n]
     if not d:
         return ""
-    # Prefer the first sentence; fall back to a hard cap.
-    i = d.find(". ")
-    if i != -1:
-        return d[: i + 1].strip()
-    if d.endswith((".", "!", "?")):
-        return d
-    if len(d) <= 140:
-        return d + "."
-    return d[:137].rstrip() + "..."
+    # Keep just the gist: cut at separators that usually introduce feature lists.
+    for sep in [":", ";", " | ", " - "]:
+        i = d.find(sep)
+        if i != -1 and i >= 18:
+            d = d[:i]
+            break
+    d = d.strip()
+    # Hard cap
+    if len(d) > 90:
+        d = d[:87].rstrip() + "..."
+    if d and d[-1] not in ".!?":
+        d += "."
+    return d
+
+
 
 
 def pick_emoji(name: str, desc: str, lang: str) -> str:
@@ -110,17 +124,11 @@ def pick_emoji(name: str, desc: str, lang: str) -> str:
     return ":small_blue_diamond:"
 
 
-def _truncate_desc(desc: str, limit: int = 140) -> str:
-    if len(desc) <= limit:
-        return desc
-    return desc[: max(0, limit - 3)] + "..."
-
-
 def fmt_repo_line(r: dict[str, Any]) -> str:
     name = r["name"]
     url = r["html_url"]
     raw_desc = r.get("description") or ""
-    desc = first_sentence(raw_desc)
+    desc = short_desc(name, raw_desc)
     lang = r.get("language") or ""
     emoji = pick_emoji(name, raw_desc, lang)
 
@@ -150,16 +158,8 @@ def main() -> int:
     # Put everything in Current Projects (sorted by most recently pushed).
     current_block = "\n".join(fmt_repo_line(r) for r in repos) if repos else "- (no public repos found)"
 
-    # Public projects list: alphabetical for quick scanning.
-    repos_az = sorted(repos, key=lambda r: (r.get("name") or "").lower())
-    all_block = "\n".join(fmt_repo_line(r) for r in repos_az) if repos_az else "- (no public repos found)"
-
-    today = _dt.date.today().isoformat()
-
     readme2 = readme
     readme2 = replace_block(readme2, "<!-- current-projects:start -->", "<!-- current-projects:end -->", current_block)
-    readme2 = replace_block(readme2, "<!-- repos:start -->", "<!-- repos:end -->", all_block)
-    readme2 = replace_block(readme2, "<!-- updated:start -->", "<!-- updated:end -->", today)
 
     if readme2 != readme:
         with open(readme_path, "w", encoding="utf-8") as f:
