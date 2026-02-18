@@ -74,6 +74,42 @@ def md_escape(s: str) -> str:
     return (s or "").replace("\r", " ").replace("\n", " ").strip()
 
 
+def first_sentence(desc: str) -> str:
+    d = md_escape(desc)
+    if not d:
+        return ""
+    # Prefer the first sentence; fall back to a hard cap.
+    i = d.find(". ")
+    if i != -1:
+        return d[: i + 1].strip()
+    if d.endswith((".", "!", "?")):
+        return d
+    if len(d) <= 140:
+        return d + "."
+    return d[:137].rstrip() + "..."
+
+
+def pick_emoji(name: str, desc: str, lang: str) -> str:
+    n = (name or "").lower()
+    d = (desc or "").lower()
+    l = (lang or "").lower()
+    hay = f"{n} {d}"
+
+    if "homebridge" in hay or "homekit" in hay or "automation" in hay:
+        return ":house:"
+    if "rssi" in hay or "wifi" in hay or "wi-fi" in hay or "radar" in hay:
+        return ":satellite:"
+    if "whisper" in hay or "dictation" in hay or "voice" in hay or "audio" in hay:
+        return ":microphone:"
+    if "cli" in hay or "terminal" in hay or "shell" in hay:
+        return ":computer:"
+    if "api" in hay or "server" in hay or "service" in hay:
+        return ":gear:"
+    if l in ("typescript", "javascript", "python"):
+        return ":small_blue_diamond:"
+    return ":small_blue_diamond:"
+
+
 def _truncate_desc(desc: str, limit: int = 140) -> str:
     if len(desc) <= limit:
         return desc
@@ -83,30 +119,14 @@ def _truncate_desc(desc: str, limit: int = 140) -> str:
 def fmt_repo_line(r: dict[str, Any]) -> str:
     name = r["name"]
     url = r["html_url"]
-    desc = _truncate_desc(md_escape(r.get("description") or ""))
+    raw_desc = r.get("description") or ""
+    desc = first_sentence(raw_desc)
     lang = r.get("language") or ""
-    stars = r.get("stargazers_count")
-    fork = r.get("fork")
-    pushed = (r.get("pushed_at") or "")[:10]
-
-    tags = []
-    if lang:
-        tags.append(f"`{lang}`")
-    if fork:
-        tags.append("`fork`")
-    if isinstance(stars, int) and stars > 0:
-        star_word = 'star' if stars == 1 else 'stars'
-        tags.append(f"`{stars} {star_word}`")
-    if pushed:
-        tags.append(f"`updated {pushed}`")
-
-    tail = ""
-    if tags:
-        tail = " " + " ".join(tags)
+    emoji = pick_emoji(name, raw_desc, lang)
 
     if desc:
-        return f"- :small_blue_diamond: [**{name}**]({url}) - {desc}{tail}"
-    return f"- :small_blue_diamond: [**{name}**]({url}){tail}"
+        return f"- {emoji} [**{name}**]({url}) - {desc}"
+    return f"- {emoji} [**{name}**]({url})"
 
 
 def replace_block(text: str, start: str, end: str, block: str) -> str:
@@ -127,10 +147,12 @@ def main() -> int:
 
     repos = fetch_public_repos(USERNAME)
 
-    current = repos[:8]
-    current_block = "\n".join(fmt_repo_line(r) for r in current) if current else "- (no public repos found)"
+    # Put everything in Current Projects (sorted by most recently pushed).
+    current_block = "\n".join(fmt_repo_line(r) for r in repos) if repos else "- (no public repos found)"
 
-    all_block = "\n".join(fmt_repo_line(r) for r in repos) if repos else "- (no public repos found)"
+    # Public projects list: alphabetical for quick scanning.
+    repos_az = sorted(repos, key=lambda r: (r.get("name") or "").lower())
+    all_block = "\n".join(fmt_repo_line(r) for r in repos_az) if repos_az else "- (no public repos found)"
 
     today = _dt.date.today().isoformat()
 
