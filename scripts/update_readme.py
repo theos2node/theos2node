@@ -201,7 +201,7 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
     icon_url = md_escape(str(app.get("artworkUrl100") or app.get("artworkUrl512") or ""))
     min_os = md_escape(str(app.get("minimumOsVersion") or "N/A"))
     version = md_escape(str(app.get("version") or "N/A"))
-    desc = "Track invoice and receipt price changes over time."
+    desc = "Scan and parse invoices and receipts to track price changes over time."
 
     rating_count = int(app.get("userRatingCount") or 0)
     avg_rating = app.get("averageUserRating")
@@ -221,12 +221,29 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
 
     return "\n".join(
         [
-            f'<a href="{app_url_html}"><img src="{icon_url_html}" width="60" alt="{title_html} icon" align="left" /></a>',
-            f'<a href="{app_url_html}"><strong>{title_html}</strong></a><br/>',
-            f"<sub>{desc_html}</sub><br/>",
-            f'<img alt="iOS badge" src="{platform_badge}" /> <img alt="Version badge" src="{version_badge}" /> <img alt="Rating badge" src="{rating_badge}" /><br/>',
-            f'<a href="{app_url_html}"><img alt="Download on the App Store" src="{APP_STORE_BADGE_URL}" height="30" /></a>',
-            '<br clear="left"/>',
+            "<table>",
+            "  <tr>",
+            (
+                f'    <td valign="top" width="72">'
+                f'<a href="{app_url_html}"><img src="{icon_url_html}" width="60" '
+                f'alt="{title_html} icon" /></a></td>'
+            ),
+            '    <td valign="top">',
+            f'      <a href="{app_url_html}"><strong>{title_html}</strong></a><br/>',
+            f"      <sub>{desc_html}</sub><br/><br/>",
+            (
+                f'      <img alt="iOS badge" src="{platform_badge}" /> '
+                f'<img alt="Version badge" src="{version_badge}" /> '
+                f'<img alt="Rating badge" src="{rating_badge}" />'
+            ),
+            "    </td>",
+            (
+                f'    <td valign="bottom" align="right" width="170">'
+                f'<a href="{app_url_html}"><img alt="Download on the App Store" '
+                f'src="{APP_STORE_BADGE_URL}" height="28" /></a></td>'
+            ),
+            "  </tr>",
+            "</table>",
         ]
     )
 
