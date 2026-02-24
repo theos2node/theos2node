@@ -15,11 +15,11 @@ US-based
 ## Published Product
 
 <!-- app-spotlight:start -->
-<p align="left">
-  <a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/9e/54/079e54d2-bf1c-6e92-cbb3-f75939f0b4e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="58" alt="Invoice Monitoring icon" align="absmiddle" /></a>&nbsp;<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a>&nbsp;&nbsp;<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="28" align="absmiddle" /></a><br/>
-  <sub>Scan and parse invoices and receipts to track price changes over time.</sub><br/><br/>
-  <img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.46-2EA44F?style=flat" /> <img alt="Rating badge" src="https://img.shields.io/badge/Rating-5.0%20stars%20%281%29-F59E0B?style=flat" />
-</p>
+<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/9e/54/079e54d2-bf1c-6e92-cbb3-f75939f0b4e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="58" alt="Invoice Monitoring icon" align="left" /></a>
+&nbsp;<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a>&nbsp;&nbsp;<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="28" align="absmiddle" /></a><br/>
+&nbsp;<sub>Scan and parse invoices and receipts to track price changes over time.</sub><br/><br/>
+&nbsp;<img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.46-2EA44F?style=flat" /> <img alt="Rating badge" src="https://img.shields.io/badge/Rating-5.0%20stars%20%281%29-F59E0B?style=flat" />
+<br clear="left"/>
 <!-- app-spotlight:end -->
 
 ## Current Projects

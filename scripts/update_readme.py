@@ -221,21 +221,22 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
 
     return "\n".join(
         [
-            '<p align="left">',
             (
-                f'  <a href="{app_url_html}"><img src="{icon_url_html}" width="58" '
-                f'alt="{title_html} icon" align="absmiddle" /></a>&nbsp;'
-                f'<a href="{app_url_html}"><strong>{title_html}</strong></a>&nbsp;&nbsp;'
+                f'<a href="{app_url_html}"><img src="{icon_url_html}" width="58" '
+                f'alt="{title_html} icon" align="left" /></a>'
+            ),
+            (
+                f'&nbsp;<a href="{app_url_html}"><strong>{title_html}</strong></a>&nbsp;&nbsp;'
                 f'<a href="{app_url_html}"><img alt="Download on the App Store" '
                 f'src="{APP_STORE_BADGE_URL}" height="28" align="absmiddle" /></a><br/>'
             ),
-            f"  <sub>{desc_html}</sub><br/><br/>",
+            f"&nbsp;<sub>{desc_html}</sub><br/><br/>",
             (
-                f'  <img alt="iOS badge" src="{platform_badge}" /> '
+                f'&nbsp;<img alt="iOS badge" src="{platform_badge}" /> '
                 f'<img alt="Version badge" src="{version_badge}" /> '
                 f'<img alt="Rating badge" src="{rating_badge}" />'
             ),
-            "</p>",
+            '<br clear="left"/>',
         ]
     )
 
