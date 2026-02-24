@@ -230,7 +230,7 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
                 f'<a href="{app_url_html}"><img alt="Download on the App Store" '
                 f'src="{APP_STORE_BADGE_URL}" height="28" align="absmiddle" /></a><br/>'
             ),
-            f"<sub>{desc_html}</sub><br/>",
+            f"<sub>{desc_html}</sub><br/><br/>",
             (
                 f'<img alt="iOS badge" src="{platform_badge}" /> '
                 f'<img alt="Version badge" src="{version_badge}" /> '
