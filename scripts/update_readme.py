@@ -27,15 +27,24 @@ PRIVATE_PROJECTS: tuple[dict[str, str], ...] = (
     {
         "name": "Invoice Monitoring (private)",
         "url": "https://apps.apple.com/us/app/invoice-monitoring/id6753273634",
-        "desc": "Published iOS app for invoice and receipt price tracking.",
+        "desc": "iOS app for scanning invoices and parsing them to CSV.",
     },
     {
         "name": "Bar's Bookkeeper (private)",
         "url": "https://github.com/theos2node/bars-bookkeeper",
-        "desc": "Private bookkeeping workflow for bar operations.",
+        "desc": "Automated inventory system.",
     },
 )
 EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper", "openclaw"}
+PROJECT_EMOJI_OVERRIDES: dict[str, str] = {
+    "invoice monitoring (private)": "🧾",
+    "bar's bookkeeper (private)": "🍸",
+    "auto-archives-notes": "🗂️",
+    "homebridge-llm-control": "🏠",
+    "rssicartographer": "📡",
+    "full-whisper-dictation-for-mac": "🎙️",
+}
+FALLBACK_PROJECT_EMOJIS: tuple[str, ...] = ("🚀", "🛠️", "📦", "⚙️", "🧠", "🧪")
 
 
 def _gh_get(url: str) -> tuple[list[dict[str, Any]], dict[str, str]]:
@@ -145,18 +154,25 @@ def short_desc(name: str, desc: str) -> str:
     if d and d[-1] not in ".!?":
         d += "."
     return d
-def fmt_repo_line(r: dict[str, Any]) -> str:
+def project_emoji(name: str, index: int) -> str:
+    key = (name or "").lower().strip()
+    if key in PROJECT_EMOJI_OVERRIDES:
+        return PROJECT_EMOJI_OVERRIDES[key]
+    return FALLBACK_PROJECT_EMOJIS[index % len(FALLBACK_PROJECT_EMOJIS)]
+
+
+def fmt_repo_line(r: dict[str, Any], emoji: str) -> str:
     name = r["name"]
     url = r["html_url"]
     raw_desc = r.get("description") or ""
     desc = short_desc(name, raw_desc)
 
     if desc:
-        return f"- [**{name}**]({url}) - {desc}"
-    return f"- [**{name}**]({url})"
+        return f"{emoji} [**{name}**]({url}) - {desc}<br/>"
+    return f"{emoji} [**{name}**]({url})<br/>"
 
 
-def fmt_private_project_line(project: dict[str, str]) -> str:
+def fmt_private_project_line(project: dict[str, str], emoji: str) -> str:
     name = project["name"]
     desc = project.get("desc", "").strip()
     url = project.get("url", "").strip()
@@ -165,8 +181,8 @@ def fmt_private_project_line(project: dict[str, str]) -> str:
     else:
         title = f"**{name}**"
     if desc:
-        return f"- {title} - {desc}"
-    return f"- {title}"
+        return f"{emoji} {title} - {desc}<br/>"
+    return f"{emoji} {title}<br/>"
 
 
 def shields_value(value: str) -> str:
@@ -263,8 +279,14 @@ def main() -> int:
     ]
 
     # Show private work first, then public projects (sorted by most recently pushed).
-    project_lines = [fmt_private_project_line(p) for p in PRIVATE_PROJECTS]
-    project_lines.extend(fmt_repo_line(r) for r in visible_repos)
+    project_lines: list[str] = []
+    idx = 0
+    for p in PRIVATE_PROJECTS:
+        project_lines.append(fmt_private_project_line(p, project_emoji(p["name"], idx)))
+        idx += 1
+    for r in visible_repos:
+        project_lines.append(fmt_repo_line(r, project_emoji(r["name"], idx)))
+        idx += 1
     current_block = "\n".join(project_lines) if project_lines else "- (no public repos found)"
 
     readme2 = readme
