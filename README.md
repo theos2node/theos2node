@@ -15,19 +15,12 @@ US-based
 ## App Store Spotlight
 
 <!-- app-spotlight:start -->
-<table>
-  <tr>
-    <td width="78" valign="top">
-      <a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/9e/54/079e54d2-bf1c-6e92-cbb3-f75939f0b4e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="64" alt="Invoice Monitoring icon" /></a>
-    </td>
-    <td valign="top">
-      <a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a><br/>
-      <sub>Track invoice and receipt price changes over time.</sub><br/>
-      <img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.46-2EA44F?style=flat" /> <img alt="Rating badge" src="https://img.shields.io/badge/Rating-5.0%20stars%20%281%29-F59E0B?style=flat" /><br/>
-      <a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="32" /></a>
-    </td>
-  </tr>
-</table>
+<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/9e/54/079e54d2-bf1c-6e92-cbb3-f75939f0b4e3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="60" alt="Invoice Monitoring icon" align="left" /></a>
+<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a><br/>
+<sub>Track invoice and receipt price changes over time.</sub><br/>
+<img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.46-2EA44F?style=flat" /> <img alt="Rating badge" src="https://img.shields.io/badge/Rating-5.0%20stars%20%281%29-F59E0B?style=flat" /><br/>
+<a href="https://apps.apple.com/us/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="30" /></a>
+<br clear="left"/>
 <!-- app-spotlight:end -->
 
 ## Current Projects
