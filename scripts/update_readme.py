@@ -201,9 +201,7 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
     icon_url = md_escape(str(app.get("artworkUrl100") or app.get("artworkUrl512") or ""))
     min_os = md_escape(str(app.get("minimumOsVersion") or "N/A"))
     version = md_escape(str(app.get("version") or "N/A"))
-    desc = short_sentence(str(app.get("description") or ""))
-    if not desc:
-        desc = "Published iOS app focused on invoice monitoring."
+    desc = "Track invoice and receipt price changes over time."
 
     rating_count = int(app.get("userRatingCount") or 0)
     avg_rating = app.get("averageUserRating")
@@ -213,6 +211,7 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
         rating_text = "New release"
 
     title_html = html.escape(name, quote=True)
+    desc_html = html.escape(desc, quote=True)
     app_url_html = html.escape(app_url, quote=True)
     icon_url_html = html.escape(icon_url, quote=True)
 
@@ -222,17 +221,19 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
 
     return "\n".join(
         [
-            f'[<img src="{icon_url_html}" width="84" alt="{title_html} icon" />]({app_url_html})',
-            "",
-            f'**[{name}]({app_url})**',
-            "",
-            desc,
-            "",
-            f'<img alt="iOS badge" src="{platform_badge}" />',
-            f'<img alt="Version badge" src="{version_badge}" />',
-            f'<img alt="Rating badge" src="{rating_badge}" />',
-            "",
-            f'[![Download on the App Store]({APP_STORE_BADGE_URL})]({app_url_html})',
+            "<table>",
+            "  <tr>",
+            '    <td width="78" valign="top">',
+            f'      <a href="{app_url_html}"><img src="{icon_url_html}" width="64" alt="{title_html} icon" /></a>',
+            "    </td>",
+            '    <td valign="top">',
+            f'      <a href="{app_url_html}"><strong>{title_html}</strong></a><br/>',
+            f"      <sub>{desc_html}</sub><br/>",
+            f'      <img alt="iOS badge" src="{platform_badge}" /> <img alt="Version badge" src="{version_badge}" /> <img alt="Rating badge" src="{rating_badge}" /><br/>',
+            f'      <a href="{app_url_html}"><img alt="Download on the App Store" src="{APP_STORE_BADGE_URL}" height="32" /></a>',
+            "    </td>",
+            "  </tr>",
+            "</table>",
         ]
     )
 
