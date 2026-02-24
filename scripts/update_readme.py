@@ -6,16 +6,38 @@ This keeps the profile README looking "alive" without manual edits.
 
 from __future__ import annotations
 
-import datetime as _dt
+import html
 import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 from typing import Any
 
 USERNAME = os.environ.get("GITHUB_USERNAME", "theos2node")
 API = "https://api.github.com"
+APP_STORE_APP_ID = os.environ.get("APP_STORE_APP_ID", "6753273634")
+APP_STORE_COUNTRY = os.environ.get("APP_STORE_COUNTRY", "us")
+APP_STORE_BADGE_URL = (
+    "https://tools.applemediaservices.com/api/badges/"
+    "download-on-the-app-store/black/en-us?size=250x83"
+)
+PRIVATE_PROJECTS: tuple[dict[str, str], ...] = (
+    {
+        "emoji": ":receipt:",
+        "name": "Invoice Monitoring (private)",
+        "url": "https://apps.apple.com/us/app/invoice-monitoring/id6753273634",
+        "desc": "Published iOS app for invoice and receipt price tracking.",
+    },
+    {
+        "emoji": ":bar_chart:",
+        "name": "Bar's Bookkeeper (private)",
+        "url": "",
+        "desc": "Private bookkeeping workflow for bar operations.",
+    },
+)
+EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper"}
 
 
 def _gh_get(url: str) -> tuple[list[dict[str, Any]], dict[str, str]]:
@@ -30,6 +52,16 @@ def _gh_get(url: str) -> tuple[list[dict[str, Any]], dict[str, str]]:
         data = json.loads(resp.read().decode("utf-8"))
         headers = {k.lower(): v for k, v in resp.headers.items()}
         return data, headers
+
+
+def _json_get(url: str, headers: dict[str, str] | None = None) -> tuple[Any, dict[str, str]]:
+    req = urllib.request.Request(url)
+    for k, v in (headers or {}).items():
+        req.add_header(k, v)
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+        meta = {k.lower(): v for k, v in resp.headers.items()}
+        return data, meta
 
 
 def _next_link(link_header: str | None) -> str | None:
@@ -68,6 +100,22 @@ def fetch_public_repos(username: str) -> list[dict[str, Any]]:
     # Ensure newest pushed first (API sort should already do this).
     out.sort(key=lambda r: r.get("pushed_at") or "", reverse=True)
     return out
+
+
+def fetch_app_store_app(app_id: str, country: str = "us") -> dict[str, Any]:
+    app_id_q = urllib.parse.quote(app_id, safe="")
+    country_q = urllib.parse.quote(country, safe="")
+    url = f"https://itunes.apple.com/lookup?id={app_id_q}&country={country_q}"
+    payload, _ = _json_get(url, headers={"Accept": "application/json"})
+    if not isinstance(payload, dict):
+        raise RuntimeError("Unexpected App Store lookup payload.")
+    results = payload.get("results")
+    if not isinstance(results, list) or not results:
+        raise RuntimeError("No App Store results returned for configured app id.")
+    app = results[0]
+    if not isinstance(app, dict):
+        raise RuntimeError("Unexpected App Store result object.")
+    return app
 
 
 def md_escape(s: str) -> str:
@@ -137,6 +185,99 @@ def fmt_repo_line(r: dict[str, Any]) -> str:
     return f"- {emoji} [**{name}**]({url})"
 
 
+def fmt_private_project_line(project: dict[str, str]) -> str:
+    emoji = project.get("emoji", ":small_blue_diamond:")
+    name = project["name"]
+    desc = project.get("desc", "").strip()
+    url = project.get("url", "").strip()
+    if url:
+        title = f"[**{name}**]({url})"
+    else:
+        title = f"**{name}**"
+    if desc:
+        return f"- {emoji} {title} - {desc}"
+    return f"- {emoji} {title}"
+
+
+def shields_value(value: str) -> str:
+    return urllib.parse.quote((value or "").replace("-", "--"), safe="")
+
+
+def shields_badge(label: str, message: str, color: str, logo: str | None = None) -> str:
+    base = (
+        f"https://img.shields.io/badge/{shields_value(label)}-"
+        f"{shields_value(message)}-{color.lstrip('#')}?style=flat"
+    )
+    if logo:
+        logo_q = urllib.parse.quote(logo, safe="")
+        return f"{base}&logo={logo_q}&logoColor=white"
+    return base
+
+
+def short_sentence(text: str, max_len: int = 140) -> str:
+    cleaned = md_escape(text)
+    if not cleaned:
+        return ""
+    parts = re.split(r"(?<=[.!?])\s+", cleaned, maxsplit=1)
+    sentence = parts[0].strip()
+    if len(sentence) <= max_len:
+        return sentence
+    return sentence[: max_len - 3].rstrip() + "..."
+
+
+def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
+    name = md_escape(str(app.get("trackName") or "Invoice Monitoring"))
+    app_url = md_escape(str(app.get("trackViewUrl") or PRIVATE_PROJECTS[0]["url"]))
+    icon_url = md_escape(str(app.get("artworkUrl100") or app.get("artworkUrl512") or ""))
+    min_os = md_escape(str(app.get("minimumOsVersion") or "N/A"))
+    version = md_escape(str(app.get("version") or "N/A"))
+    category = md_escape(str(app.get("primaryGenreName") or "Productivity"))
+    price = md_escape(str(app.get("formattedPrice") or "Free"))
+    desc = short_sentence(str(app.get("description") or ""))
+    if not desc:
+        desc = "Published iOS app focused on invoice monitoring."
+
+    rating_count = int(app.get("userRatingCount") or 0)
+    avg_rating = app.get("averageUserRating")
+    if rating_count > 0 and isinstance(avg_rating, (int, float)):
+        rating_text = f"{avg_rating:.1f} stars ({rating_count})"
+    else:
+        rating_text = "New release"
+
+    title_html = html.escape(name)
+    desc_html = html.escape(desc)
+    app_url_html = html.escape(app_url, quote=True)
+    icon_url_html = html.escape(icon_url, quote=True)
+
+    platform_badge = shields_badge("Platform", f"iOS {min_os}+", "0A84FF", logo="apple")
+    version_badge = shields_badge("Version", version, "2EA44F")
+    rating_badge = shields_badge("Rating", rating_text, "F59E0B")
+    category_badge = shields_badge("Category", category, "6F42C1")
+    price_badge = shields_badge("Price", price, "111827")
+
+    return "\n".join(
+        [
+            "<table>",
+            "  <tr>",
+            '    <td width="112">',
+            f'      <a href="{app_url_html}"><img src="{icon_url_html}" width="96" alt="{title_html} icon" /></a>',
+            "    </td>",
+            "    <td>",
+            f'      <strong><a href="{app_url_html}">{title_html}</a></strong><br/>',
+            f"      {desc_html}<br/>",
+            f'      <img alt="Platform badge" src="{platform_badge}" />',
+            f'      <img alt="Version badge" src="{version_badge}" />',
+            f'      <img alt="Rating badge" src="{rating_badge}" />',
+            f'      <img alt="Category badge" src="{category_badge}" />',
+            f'      <img alt="Price badge" src="{price_badge}" /><br/>',
+            f'      <a href="{app_url_html}"><img alt="Download on the App Store" src="{APP_STORE_BADGE_URL}" height="40" /></a>',
+            "    </td>",
+            "  </tr>",
+            "</table>",
+        ]
+    )
+
+
 def replace_block(text: str, start: str, end: str, block: str) -> str:
     pat = re.compile(
         rf"({re.escape(start)})(.*)({re.escape(end)})",
@@ -154,12 +295,35 @@ def main() -> int:
         readme = f.read()
 
     repos = fetch_public_repos(USERNAME)
+    visible_repos = [
+        r for r in repos if (r.get("name") or "").lower() not in EXCLUDED_PUBLIC_REPOS
+    ]
 
-    # Put everything in Current Projects (sorted by most recently pushed).
-    current_block = "\n".join(fmt_repo_line(r) for r in repos) if repos else "- (no public repos found)"
+    # Show private work first, then public projects (sorted by most recently pushed).
+    project_lines = [fmt_private_project_line(p) for p in PRIVATE_PROJECTS]
+    project_lines.extend(fmt_repo_line(r) for r in visible_repos)
+    current_block = "\n".join(project_lines) if project_lines else "- (no public repos found)"
 
     readme2 = readme
-    readme2 = replace_block(readme2, "<!-- current-projects:start -->", "<!-- current-projects:end -->", current_block)
+    readme2 = replace_block(
+        readme2,
+        "<!-- current-projects:start -->",
+        "<!-- current-projects:end -->",
+        current_block,
+    )
+
+    if "<!-- app-spotlight:start -->" in readme2 and "<!-- app-spotlight:end -->" in readme2:
+        try:
+            app = fetch_app_store_app(APP_STORE_APP_ID, APP_STORE_COUNTRY)
+            app_block = fmt_app_spotlight_block(app)
+            readme2 = replace_block(
+                readme2,
+                "<!-- app-spotlight:start -->",
+                "<!-- app-spotlight:end -->",
+                app_block,
+            )
+        except Exception as exc:
+            print(f"warning: app spotlight refresh failed: {exc}", file=sys.stderr)
 
     if readme2 != readme:
         with open(readme_path, "w", encoding="utf-8") as f:
