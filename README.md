@@ -1,6 +1,6 @@
 # Hi, I'm Theo
 
-Full-stack developer. Currently building and contributing to OpenClaw. Open to work
+Full-stack developer. Currently building and contributing to [OpenClaw](https://github.com/theos2node/openclaw). Open to work
 
 <p>
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
