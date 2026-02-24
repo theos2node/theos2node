@@ -25,19 +25,17 @@ APP_STORE_BADGE_URL = (
 )
 PRIVATE_PROJECTS: tuple[dict[str, str], ...] = (
     {
-        "emoji": ":receipt:",
         "name": "Invoice Monitoring (private)",
         "url": "https://apps.apple.com/us/app/invoice-monitoring/id6753273634",
         "desc": "Published iOS app for invoice and receipt price tracking.",
     },
     {
-        "emoji": ":bar_chart:",
         "name": "Bar's Bookkeeper (private)",
-        "url": "",
+        "url": "https://github.com/theos2node/bars-bookkeeper",
         "desc": "Private bookkeeping workflow for bar operations.",
     },
 )
-EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper"}
+EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper", "openclaw"}
 
 
 def _gh_get(url: str) -> tuple[list[dict[str, Any]], dict[str, str]]:
@@ -147,46 +145,18 @@ def short_desc(name: str, desc: str) -> str:
     if d and d[-1] not in ".!?":
         d += "."
     return d
-
-
-
-
-def pick_emoji(name: str, desc: str, lang: str) -> str:
-    n = (name or "").lower()
-    d = (desc or "").lower()
-    l = (lang or "").lower()
-    hay = f"{n} {d}"
-
-    if "homebridge" in hay or "homekit" in hay or "automation" in hay:
-        return ":house:"
-    if "rssi" in hay or "wifi" in hay or "wi-fi" in hay or "radar" in hay:
-        return ":satellite:"
-    if "whisper" in hay or "dictation" in hay or "voice" in hay or "audio" in hay:
-        return ":microphone:"
-    if "cli" in hay or "terminal" in hay or "shell" in hay:
-        return ":computer:"
-    if "api" in hay or "server" in hay or "service" in hay:
-        return ":gear:"
-    if l in ("typescript", "javascript", "python"):
-        return ":small_blue_diamond:"
-    return ":small_blue_diamond:"
-
-
 def fmt_repo_line(r: dict[str, Any]) -> str:
     name = r["name"]
     url = r["html_url"]
     raw_desc = r.get("description") or ""
     desc = short_desc(name, raw_desc)
-    lang = r.get("language") or ""
-    emoji = pick_emoji(name, raw_desc, lang)
 
     if desc:
-        return f"- {emoji} [**{name}**]({url}) - {desc}"
-    return f"- {emoji} [**{name}**]({url})"
+        return f"- [**{name}**]({url}) - {desc}"
+    return f"- [**{name}**]({url})"
 
 
 def fmt_private_project_line(project: dict[str, str]) -> str:
-    emoji = project.get("emoji", ":small_blue_diamond:")
     name = project["name"]
     desc = project.get("desc", "").strip()
     url = project.get("url", "").strip()
@@ -195,8 +165,8 @@ def fmt_private_project_line(project: dict[str, str]) -> str:
     else:
         title = f"**{name}**"
     if desc:
-        return f"- {emoji} {title} - {desc}"
-    return f"- {emoji} {title}"
+        return f"- {title} - {desc}"
+    return f"- {title}"
 
 
 def shields_value(value: str) -> str:
@@ -231,8 +201,6 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
     icon_url = md_escape(str(app.get("artworkUrl100") or app.get("artworkUrl512") or ""))
     min_os = md_escape(str(app.get("minimumOsVersion") or "N/A"))
     version = md_escape(str(app.get("version") or "N/A"))
-    category = md_escape(str(app.get("primaryGenreName") or "Productivity"))
-    price = md_escape(str(app.get("formattedPrice") or "Free"))
     desc = short_sentence(str(app.get("description") or ""))
     if not desc:
         desc = "Published iOS app focused on invoice monitoring."
@@ -244,36 +212,27 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
     else:
         rating_text = "New release"
 
-    title_html = html.escape(name)
-    desc_html = html.escape(desc)
+    title_html = html.escape(name, quote=True)
     app_url_html = html.escape(app_url, quote=True)
     icon_url_html = html.escape(icon_url, quote=True)
 
-    platform_badge = shields_badge("Platform", f"iOS {min_os}+", "0A84FF", logo="apple")
+    platform_badge = shields_badge("iOS", f"{min_os}+", "0A84FF", logo="apple")
     version_badge = shields_badge("Version", version, "2EA44F")
     rating_badge = shields_badge("Rating", rating_text, "F59E0B")
-    category_badge = shields_badge("Category", category, "6F42C1")
-    price_badge = shields_badge("Price", price, "111827")
 
     return "\n".join(
         [
-            "<table>",
-            "  <tr>",
-            '    <td width="112">',
-            f'      <a href="{app_url_html}"><img src="{icon_url_html}" width="96" alt="{title_html} icon" /></a>',
-            "    </td>",
-            "    <td>",
-            f'      <strong><a href="{app_url_html}">{title_html}</a></strong><br/>',
-            f"      {desc_html}<br/>",
-            f'      <img alt="Platform badge" src="{platform_badge}" />',
-            f'      <img alt="Version badge" src="{version_badge}" />',
-            f'      <img alt="Rating badge" src="{rating_badge}" />',
-            f'      <img alt="Category badge" src="{category_badge}" />',
-            f'      <img alt="Price badge" src="{price_badge}" /><br/>',
-            f'      <a href="{app_url_html}"><img alt="Download on the App Store" src="{APP_STORE_BADGE_URL}" height="40" /></a>',
-            "    </td>",
-            "  </tr>",
-            "</table>",
+            f'[<img src="{icon_url_html}" width="84" alt="{title_html} icon" />]({app_url_html})',
+            "",
+            f'**[{name}]({app_url})**',
+            "",
+            desc,
+            "",
+            f'<img alt="iOS badge" src="{platform_badge}" />',
+            f'<img alt="Version badge" src="{version_badge}" />',
+            f'<img alt="Rating badge" src="{rating_badge}" />',
+            "",
+            f'[![Download on the App Store]({APP_STORE_BADGE_URL})]({app_url_html})',
         ]
     )
 
