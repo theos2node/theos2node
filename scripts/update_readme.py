@@ -221,29 +221,21 @@ def fmt_app_spotlight_block(app: dict[str, Any]) -> str:
 
     return "\n".join(
         [
-            "<table>",
-            "  <tr>",
+            '<p align="left">',
             (
-                f'    <td valign="top" width="72">'
-                f'<a href="{app_url_html}"><img src="{icon_url_html}" width="60" '
-                f'alt="{title_html} icon" /></a></td>'
+                f'  <a href="{app_url_html}"><img src="{icon_url_html}" width="58" '
+                f'alt="{title_html} icon" align="absmiddle" /></a>&nbsp;'
+                f'<a href="{app_url_html}"><strong>{title_html}</strong></a>&nbsp;&nbsp;'
+                f'<a href="{app_url_html}"><img alt="Download on the App Store" '
+                f'src="{APP_STORE_BADGE_URL}" height="28" align="absmiddle" /></a><br/>'
             ),
-            '    <td valign="top">',
-            f'      <a href="{app_url_html}"><strong>{title_html}</strong></a><br/>',
-            f"      <sub>{desc_html}</sub><br/><br/>",
+            f"  <sub>{desc_html}</sub><br/><br/>",
             (
-                f'      <img alt="iOS badge" src="{platform_badge}" /> '
+                f'  <img alt="iOS badge" src="{platform_badge}" /> '
                 f'<img alt="Version badge" src="{version_badge}" /> '
                 f'<img alt="Rating badge" src="{rating_badge}" />'
             ),
-            "    </td>",
-            (
-                f'    <td valign="bottom" align="right" width="170">'
-                f'<a href="{app_url_html}"><img alt="Download on the App Store" '
-                f'src="{APP_STORE_BADGE_URL}" height="28" /></a></td>'
-            ),
-            "  </tr>",
-            "</table>",
+            "</p>",
         ]
     )
 
