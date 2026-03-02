@@ -26,10 +26,10 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 
 <!-- current-projects:start -->
 🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
-🍸 [**Bar's Bookkeeper (private)**](https://barsbookkeeper.com/) - Automated inventory and ordering system for bars.<br/>
-📦 [**iPadOS Inventory Taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source iPad inventory capture app with barcode, photo AI, and text search workflows.<br/>
+🍸 [**Bar's Bookkeeper (private)**](https://github.com/theos2node/bars-bookkeeper) - Automated inventory system.<br/>
+📦 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source iPadOS inventory capture app with barcode, AI photo, and text search workflows.<br/>
 🗂️ [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Second-brain iOS app.<br/>
+🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
 🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.<br/>
 📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi RSSI/radar mapping tool.<br/>
-🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation.<br/>
 <!-- current-projects:end -->
