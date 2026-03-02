@@ -32,4 +32,5 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
 🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.<br/>
 📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi RSSI/radar mapping tool.<br/>
+🔤 [**dyslexic-font**](https://github.com/theos2node/dyslexic-font) - Dyslexia-driven reading font/style project built from the text pattern that helps me read more comfortably.<br/>
 <!-- current-projects:end -->
