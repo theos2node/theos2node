@@ -26,7 +26,7 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 
 <!-- current-projects:start -->
 🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
-🍸 [**Bars Bookkeeper (private)**](https://barsbookkeeper.com/) - Automated inventory system.<br/>
+🍸 [**Bars Bookkeeper (private)**](https://www.barsbookkeeper.com/) - Automated inventory system.<br/>
 📦 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Ipad OS Inventory App for moves (cute UI)<br/>
 🗂️ [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Second-brain iOS app.<br/>
 🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
