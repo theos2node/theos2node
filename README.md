@@ -27,10 +27,11 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 <!-- current-projects:start -->
 🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
 🍸 [**Bar's Bookkeeper (private)**](https://github.com/theos2node/bars-bookkeeper) - Automated inventory system.<br/>
-📦 [**mak-o2**](https://github.com/theos2node/mak-o2) - An almost DS/3DS-style note-taking app.<br/>
-⚙️ [**The-Bars-Bookkeeper-Manager**](https://github.com/theos2node/The-Bars-Bookkeeper-Manager) - iPad companion app for Bars Bookkeeper — native SwiftUI manager dashboard for inventory...<br/>
-🧠 [**dyslexic-font**](https://github.com/theos2node/dyslexic-font) - dyslexic font.<br/>
-🧪 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source iPadOS inventory capture app with barcode, AI photo, and text search workflows.<br/>
+📦 [**chat2api**](https://github.com/theos2node/chat2api) - A service that can convert ChatGPT on the web to OpenAI API format.<br/>
+⚙️ [**mak-o2**](https://github.com/theos2node/mak-o2) - An almost DS/3DS-style note-taking app.<br/>
+🧠 [**The-Bars-Bookkeeper-Manager**](https://github.com/theos2node/The-Bars-Bookkeeper-Manager) - iPad companion app for Bars Bookkeeper — native SwiftUI manager dashboard for inventory...<br/>
+🧪 [**dyslexic-font**](https://github.com/theos2node/dyslexic-font) - dyslexic font.<br/>
+🚀 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source iPadOS inventory capture app with barcode, AI photo, and text search workflows.<br/>
 🗂️ [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Second-brain iOS app.<br/>
 🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
 🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.<br/>
