@@ -24,6 +24,14 @@ Currently building product-focused Swift and TypeScript projects, contributing t
 <br clear="left"/>
 <!-- app-spotlight:end -->
 
+## Flagship Systems
+
+**The Bars Bookkeeper** - private full-stack platform for bar inventory, purchasing, forecasting, variance tracking, and manager workflows. Built with React, TypeScript, Express, Postgres, Docker, and Cloudflare deployment pieces.
+
+**Invoice Monitoring** - published iOS app for scanning invoices, extracting structured line items with Vision OCR and AI parsing, and tracking price changes over time.
+
+These are the projects I have spent the most time shaping into real products: not just UI experiments, but systems with data models, user workflows, persistence, testing, and deployment constraints.
+
 ## Selected Projects
 
 <!-- current-projects:start -->
