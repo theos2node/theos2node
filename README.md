@@ -1,13 +1,15 @@
 # Hi, I'm Theo
 
-Full-stack developer. Currently building and contributing to [OpenClaw](https://github.com/openclaw/openclaw). Open to work
+Full-stack developer building practical iOS/macOS, automation, and local AI tools. I like software that solves real workflow problems: inventory capture, dictation, smart-home operations, and agent tooling.
+
+Currently building product-focused Swift and TypeScript projects, contributing to [OpenClaw](https://github.com/openclaw/openclaw), and open to software roles where shipping useful tools matters.
 
 <p>
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=111827" />
   <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
   <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white" />
-  <img alt="OpenIA" src="https://img.shields.io/badge/OpenIA-111827?style=flat&logo=openai&logoColor=white" />
+  <img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-111827?style=flat&logo=openai&logoColor=white" />
   <img alt="Claude" src="https://img.shields.io/badge/Claude-111827?style=flat&logo=anthropic&logoColor=white" />
   <img alt="macOS" src="https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white" />
 </p>
@@ -22,18 +24,13 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 <br clear="left"/>
 <!-- app-spotlight:end -->
 
-## Current Projects
+## Selected Projects
 
 <!-- current-projects:start -->
-🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
-🍸 [**Bar's Bookkeeper (private)**](https://github.com/theos2node/bars-bookkeeper) - Automated inventory system.<br/>
-📦 [**Chrome2Airplay**](https://github.com/theos2node/Chrome2Airplay) - Chrome extension and macOS WebKit helper for AirPlay video pages from Chrome.<br/>
-⚙️ [**mak-o2**](https://github.com/theos2node/mak-o2) - An almost DS/3DS-style note-taking app.<br/>
-🧠 [**The-Bars-Bookkeeper-Manager**](https://github.com/theos2node/The-Bars-Bookkeeper-Manager) - iPad companion app for Bars Bookkeeper — native SwiftUI manager dashboard for inventory...<br/>
-🧪 [**dyslexic-font**](https://github.com/theos2node/dyslexic-font) - dyslexic font.<br/>
-🚀 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source iPadOS inventory capture app with barcode, AI photo, and text search workflows.<br/>
-🗂️ [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Second-brain iOS app.<br/>
-🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
-🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.<br/>
-📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi RSSI/radar mapping tool.<br/>
+🧾 [**Invoice Monitoring**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - Published iOS app for scanning invoices and receipts, parsing line items, and tracking price changes over time.<br/>
+🚀 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source SwiftUI inventory capture app with barcode scanning, AI photo recognition, duplicate resolution, and CSV export.<br/>
+🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Local-first macOS dictation app using Whisper inference, transcript history, and paste-anywhere clipboard workflows.<br/>
+🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - TypeScript Homebridge plugin for chat-based device control, monitoring, watchdog checks, and guardrailed automation skills.<br/>
+⚙️ [**mak-o2**](https://github.com/theos2node/mak-o2) - Swift note-taking app built around a minimal, spatial, sketch-first canvas.<br/>
+📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - macOS Wi-Fi radar map for local network discovery, RSSI visualization, and distance calibration experiments.<br/>
 <!-- current-projects:end -->
