@@ -27,7 +27,7 @@ Full-stack developer. Currently building and contributing to [OpenClaw](https://
 <!-- current-projects:start -->
 🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
 🍸 [**Bar's Bookkeeper (private)**](https://github.com/theos2node/bars-bookkeeper) - Automated inventory system.<br/>
-📦 [**chat2api**](https://github.com/theos2node/chat2api) - A service that can convert ChatGPT on the web to OpenAI API format.<br/>
+📦 [**Chrome2Airplay**](https://github.com/theos2node/Chrome2Airplay) - Chrome extension and macOS WebKit helper for AirPlay video pages from Chrome.<br/>
 ⚙️ [**mak-o2**](https://github.com/theos2node/mak-o2) - An almost DS/3DS-style note-taking app.<br/>
 🧠 [**The-Bars-Bookkeeper-Manager**](https://github.com/theos2node/The-Bars-Bookkeeper-Manager) - iPad companion app for Bars Bookkeeper — native SwiftUI manager dashboard for inventory...<br/>
 🧪 [**dyslexic-font**](https://github.com/theos2node/dyslexic-font) - dyslexic font.<br/>

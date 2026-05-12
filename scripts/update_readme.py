@@ -35,7 +35,7 @@ PRIVATE_PROJECTS: tuple[dict[str, str], ...] = (
         "desc": "Automated inventory system.",
     },
 )
-EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper", "openclaw"}
+EXCLUDED_PUBLIC_REPOS = {"invoice-uploaderv2.2", "bars-bookkeeper", "openclaw", "chat2api"}
 PROJECT_EMOJI_OVERRIDES: dict[str, str] = {
     "invoice monitoring (private)": "🧾",
     "bar's bookkeeper (private)": "🍸",
