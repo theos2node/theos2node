@@ -35,10 +35,14 @@ These are the projects I have spent the most time shaping into real products: no
 ## Selected Projects
 
 <!-- current-projects:start -->
-🧾 [**Invoice Monitoring**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - Published iOS app for scanning invoices and receipts, parsing line items, and tracking price changes over time.<br/>
-🚀 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - Open-source SwiftUI inventory capture app with barcode scanning, AI photo recognition, duplicate resolution, and CSV export.<br/>
-🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Local-first macOS dictation app using Whisper inference, transcript history, and paste-anywhere clipboard workflows.<br/>
-🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - TypeScript Homebridge plugin for chat-based device control, monitoring, watchdog checks, and guardrailed automation skills.<br/>
-⚙️ [**mak-o2**](https://github.com/theos2node/mak-o2) - Swift note-taking app built around a minimal, spatial, sketch-first canvas.<br/>
-📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - macOS Wi-Fi radar map for local network discovery, RSSI visualization, and distance calibration experiments.<br/>
+🧾 [**Invoice Monitoring (private)**](https://apps.apple.com/us/app/invoice-monitoring/id6753273634) - iOS app for scanning invoices and parsing them to CSV.<br/>
+🍸 [**Bar's Bookkeeper (private)**](https://github.com/theos2node/bars-bookkeeper) - Automated inventory system.<br/>
+📦 [**ipados-inventory-taker**](https://github.com/theos2node/ipados-inventory-taker) - SwiftUI iPadOS inventory capture app with barcode scanning, AI photo recognition, dupli...<br/>
+🎙️ [**Full-Whisper-Dictation-for-Mac**](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) - Whisper-based macOS dictation replacement.<br/>
+🏠 [**homebridge-llm-control**](https://github.com/theos2node/homebridge-llm-control) - Chat + LLM ops for Homebridge.<br/>
+🧪 [**Chrome2Airplay**](https://github.com/theos2node/Chrome2Airplay) - Chrome extension plus native macOS WebKit helper for sending Chrome video pages to AirP...<br/>
+🚀 [**mak-o2**](https://github.com/theos2node/mak-o2) - SwiftUI and PencilKit sketch-first note app built around a minimal spatial canvas.<br/>
+🛠️ [**The-Bars-Bookkeeper-Manager**](https://github.com/theos2node/The-Bars-Bookkeeper-Manager) - Native SwiftUI iPad manager companion for Bars Bookkeeper inventory, forecasts, orders,...<br/>
+🗂️ [**auto-archives-notes**](https://github.com/theos2node/auto-archives-notes) - Swift second-brain notes app for quick capture, transcript workflows, and local/model-a...<br/>
+📡 [**RSSICartographer**](https://github.com/theos2node/RSSICartographer) - Live macOS Wi-Fi RSSI/radar mapping tool.<br/>
 <!-- current-projects:end -->
