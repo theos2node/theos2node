@@ -25,8 +25,8 @@ Inventory, purchasing, forecasting, and variance tools for hospitality operators
 A published SwiftUI app for scanning invoices and receipts, extracting structured line items on-device, tracking price history, and exporting records without sending document images to a hosted recognition service.
 
 <!-- app-spotlight:start -->
-<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/e2/21/71e221fc-3281-cc40-7d38-63bcd368f850/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="58" alt="Invoice Monitoring icon" align="left" /></a>
-<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634"><strong>Invoice Monitoring</strong></a>&nbsp;&nbsp;<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="28" align="absmiddle" /></a><br/>
+<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/e2/21/71e221fc-3281-cc40-7d38-63bcd368f850/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="58" alt="Invoice Monitoring icon" align="left" /></a>
+<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a>&nbsp;&nbsp;<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="28" align="absmiddle" /></a><br/>
 <sub>Scan invoices and receipts, extract structured line items, and track price changes over time.</sub><br/><br/>
 <img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.54-2EA44F?style=flat" />
 <br clear="left"/>
