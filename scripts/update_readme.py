@@ -17,10 +17,6 @@ APP_STORE_COUNTRY = os.environ.get("APP_STORE_COUNTRY", "ph")
 APP_STORE_FALLBACK_URL = (
     "https://apps.apple.com/ph/app/invoice-monitoring/id6753273634"
 )
-APP_SOURCE_URL = "https://github.com/theos2node/Invoice-uploaderV2.2"
-APP_NOTES_URL = "https://theos2node.github.io/Invoice-monitoring/"
-
-
 def fetch_app_store_app(app_id: str, country: str) -> dict[str, Any]:
     app_id_q = urllib.parse.quote(app_id, safe="")
     country_q = urllib.parse.quote(country, safe="")
@@ -48,14 +44,11 @@ def app_spotlight(app: dict[str, Any]) -> str:
 
     name_html = html.escape(name, quote=True)
     app_url_html = html.escape(app_url, quote=True)
-    source_url = html.escape(APP_SOURCE_URL, quote=True)
-    notes_url = html.escape(APP_NOTES_URL, quote=True)
 
     return (
-        f"🧾 [**{name_html}**]({app_url_html}) - Scan invoices and receipts, "
-        "extract line items on-device, and track price changes "
-        f"`iOS {minimum_os}+` `v{version}` "
-        f"([source]({source_url}) · [notes]({notes_url}))<br/>"
+        f"🧾 [**{name_html}**]({app_url_html}) - "
+        "On-device invoice scanning and price tracking "
+        f"`iOS {minimum_os}+` `v{version}`<br/>"
     )
 
 
