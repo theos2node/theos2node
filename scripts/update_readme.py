@@ -52,10 +52,10 @@ def app_spotlight(app: dict[str, Any]) -> str:
     notes_url = html.escape(APP_NOTES_URL, quote=True)
 
     return (
-        f"- 🧾 **[{name_html}]({app_url_html})** — scan invoices and receipts, "
+        f"🧾 [**{name_html}**]({app_url_html}) - Scan invoices and receipts, "
         "extract line items on-device, and track price changes "
         f"`iOS {minimum_os}+` `v{version}` "
-        f"([source]({source_url}) · [notes]({notes_url}))"
+        f"([source]({source_url}) · [notes]({notes_url}))<br/>"
     )
 
 
@@ -67,7 +67,7 @@ def replace_block(text: str, start: str, end: str, replacement: str) -> str:
     match = pattern.search(text)
     if not match:
         raise RuntimeError(f"Missing README markers: {start} … {end}")
-    return text[: match.start(2)] + "\n" + replacement.rstrip() + "\n" + text[match.end(2) :]
+    return text[: match.start(2)] + replacement.rstrip() + text[match.end(2) :]
 
 
 def main() -> int:
