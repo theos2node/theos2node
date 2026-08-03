@@ -17,10 +17,8 @@ APP_STORE_COUNTRY = os.environ.get("APP_STORE_COUNTRY", "ph")
 APP_STORE_FALLBACK_URL = (
     "https://apps.apple.com/ph/app/invoice-monitoring/id6753273634"
 )
-APP_STORE_BADGE_URL = (
-    "https://tools.applemediaservices.com/api/badges/"
-    "download-on-the-app-store/black/en-us?size=250x83"
-)
+APP_SOURCE_URL = "https://github.com/theos2node/Invoice-uploaderV2.2"
+APP_NOTES_URL = "https://theos2node.github.io/Invoice-monitoring/"
 
 
 def fetch_app_store_app(app_id: str, country: str) -> dict[str, Any]:
@@ -42,59 +40,22 @@ def fetch_app_store_app(app_id: str, country: str) -> dict[str, Any]:
     return app
 
 
-def shields_value(value: str) -> str:
-    return urllib.parse.quote(value.replace("-", "--"), safe="")
-
-
-def shields_badge(
-    label: str, message: str, color: str, logo: str | None = None
-) -> str:
-    url = (
-        f"https://img.shields.io/badge/{shields_value(label)}-"
-        f"{shields_value(message)}-{color}?style=flat"
-    )
-    if logo:
-        url += (
-            f"&logo={urllib.parse.quote(logo, safe='')}"
-            "&logoColor=white"
-        )
-    return url
-
-
 def app_spotlight(app: dict[str, Any]) -> str:
     name = str(app.get("trackName") or "Invoice Monitoring").strip()
     app_url = str(app.get("trackViewUrl") or APP_STORE_FALLBACK_URL).strip()
-    icon_url = str(app.get("artworkUrl100") or app.get("artworkUrl512") or "").strip()
     minimum_os = str(app.get("minimumOsVersion") or "N/A").strip()
     version = str(app.get("version") or "N/A").strip()
 
     name_html = html.escape(name, quote=True)
     app_url_html = html.escape(app_url, quote=True)
-    icon_url_html = html.escape(icon_url, quote=True)
-    platform_badge = shields_badge("iOS", f"{minimum_os}+", "0A84FF", "apple")
-    version_badge = shields_badge("Version", version, "2EA44F")
+    source_url = html.escape(APP_SOURCE_URL, quote=True)
+    notes_url = html.escape(APP_NOTES_URL, quote=True)
 
-    return "\n".join(
-        [
-            (
-                f'<a href="{app_url_html}"><img src="{icon_url_html}" width="58" '
-                f'alt="{name_html} icon" align="left" /></a>'
-            ),
-            (
-                f'<a href="{app_url_html}"><strong>{name_html}</strong></a>&nbsp;&nbsp;'
-                f'<a href="{app_url_html}"><img alt="Download on the App Store" '
-                f'src="{APP_STORE_BADGE_URL}" height="28" align="absmiddle" /></a><br/>'
-            ),
-            (
-                "<sub>Scan invoices and receipts, extract structured line items, "
-                "and track price changes over time.</sub><br/><br/>"
-            ),
-            (
-                f'<img alt="iOS badge" src="{platform_badge}" /> '
-                f'<img alt="Version badge" src="{version_badge}" />'
-            ),
-            '<br clear="left"/>',
-        ]
+    return (
+        f"- 🧾 **[{name_html}]({app_url_html})** — scan invoices and receipts, "
+        "extract line items on-device, and track price changes "
+        f"`iOS {minimum_os}+` `v{version}` "
+        f"([source]({source_url}) · [notes]({notes_url}))"
     )
 
 

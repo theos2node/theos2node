@@ -1,56 +1,54 @@
-# Theo Pasquier
+# Hi, I'm Theo 👋
 
-Product-focused software engineer working across iOS, local-first systems, and operational software.
+📍 **United States** | 📱 **iOS & macOS** | 🧰 **Product + operations software**
 
-I build tools for jobs that still involve clipboards, spreadsheets, or too many browser tabs. My recent work spans Swift and SwiftUI, TypeScript and Node.js, SQLite, Docker, Bluetooth, and on-device machine learning.
+I build tools for jobs that still involve clipboards, spreadsheets, or too many browser tabs—using Swift and SwiftUI, TypeScript and Node.js, SQLite, Bluetooth, Docker, and on-device machine learning.
 
-<p>
-  <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138?style=flat&logo=swift&logoColor=white" />
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
-  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white" />
-  <img alt="SQLite" src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white" />
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" />
-</p>
+![Swift](https://img.shields.io/badge/-Swift-FA7343?style=flat-square&logo=swift&logoColor=white)
+![SwiftUI](https://img.shields.io/badge/-SwiftUI-0062D3?style=flat-square&logo=swift&logoColor=white)
+![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![SQLite](https://img.shields.io/badge/-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![iOS](https://img.shields.io/badge/-iOS-000000?style=flat-square&logo=apple&logoColor=white)
+![macOS](https://img.shields.io/badge/-macOS-000000?style=flat-square&logo=apple&logoColor=white)
 
-## Featured work
+## Start Here
 
-### BarsBookkeeper
-
-Inventory, purchasing, forecasting, and variance tools for hospitality operators. The live product covers the manager workflow; the public Version 3 repository contains the local-first inventory engine, command-line interface, terminal UI, tests, and deployment tooling.
-
-[Live product](https://barsbookkeeper.com/) · [Source: Version 3](https://github.com/theos2node/BarsBookkeeper-Version-3)
-
-### Invoice Monitoring
-
-A published SwiftUI app for scanning invoices and receipts, extracting structured line items on-device, tracking price history, and exporting records without sending document images to a hosted recognition service.
-
+- 🍸 **[BarsBookkeeper](https://barsbookkeeper.com/)** — inventory, purchasing, forecasting, and variance tools for hospitality operators ([source](https://github.com/theos2node/BarsBookkeeper-Version-3))
 <!-- app-spotlight:start -->
-<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/71/e2/21/71e221fc-3281-cc40-7d38-63bcd368f850/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.jpg" width="58" alt="Invoice Monitoring icon" align="left" /></a>
-<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><strong>Invoice Monitoring</strong></a>&nbsp;&nbsp;<a href="https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4"><img alt="Download on the App Store" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" height="28" align="absmiddle" /></a><br/>
-<sub>Scan invoices and receipts, extract structured line items, and track price changes over time.</sub><br/><br/>
-<img alt="iOS badge" src="https://img.shields.io/badge/iOS-18.5%2B-0A84FF?style=flat&logo=apple&logoColor=white" /> <img alt="Version badge" src="https://img.shields.io/badge/Version-1.54-2EA44F?style=flat" />
-<br clear="left"/>
+- 🧾 **[Invoice Monitoring](https://apps.apple.com/ph/app/invoice-monitoring/id6753273634?uo=4)** — scan invoices and receipts, extract line items on-device, and track price changes `iOS 18.5+` `v1.54` ([source](https://github.com/theos2node/Invoice-uploaderV2.2) · [notes](https://theos2node.github.io/Invoice-monitoring/))
 <!-- app-spotlight:end -->
+- 📡 **[StreetPass for iOS](https://github.com/theos2node/sidepass-ios)** — local-first Bluetooth encounters designed around real iOS background constraints
+- 🏠 **[Homebridge LLM Control](https://github.com/theos2node/homebridge-llm-control)** — guardrailed natural-language device control through Telegram, Discord, and webhooks ([npm](https://www.npmjs.com/package/homebridge-llm-control) · [project page](https://theos2node.github.io/homebridge-llm-control/))
 
-[App Store](https://apps.apple.com/ph/app/invoice-monitoring/id6753273634) · [Source](https://github.com/theos2node/Invoice-uploaderV2.2) · [Product notes](https://theos2node.github.io/Invoice-monitoring/)
+## Current Projects
 
-### StreetPass for iOS
+### iOS, macOS & Local-First
 
-A local-first Bluetooth encounter app built around iOS background constraints. It exchanges small profile payloads directly between nearby devices, keeps encounter history on the phone, and includes a repeatable two-device test protocol.
+- 🧾 **[Invoice Monitoring](https://apps.apple.com/ph/app/invoice-monitoring/id6753273634)** — published SwiftUI invoice scanner with on-device extraction, price history, and export
+- 📡 **[StreetPass for iOS](https://github.com/theos2node/sidepass-ios)** — nearby profile exchange with on-device encounter history and a repeatable two-device test protocol
+- 🎙️ **[Full Whisper Dictation for Mac](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac)** — local speech-to-text for macOS
+- 🚀 **[iPadOS Inventory Taker](https://github.com/theos2node/ipados-inventory-taker)** — inventory capture with barcode scanning and photo-assisted recognition
 
-[Source](https://github.com/theos2node/sidepass-ios)
+### Operations & Automation
 
-### Homebridge LLM Control
+- 🍸 **[BarsBookkeeper Version 3](https://github.com/theos2node/BarsBookkeeper-Version-3)** — local-first inventory engine, CLI, terminal UI, tests, and deployment tooling
+- 🏠 **[Homebridge LLM Control](https://github.com/theos2node/homebridge-llm-control)** — validated command execution with explicit policy, confirmation, and audit boundaries
 
-A Homebridge plugin that turns natural-language requests into a small, validated command set. It supports Telegram, Discord, and webhooks while keeping device control behind explicit policy, confirmation, and audit boundaries.
+## GitHub Activity
 
-[Source](https://github.com/theos2node/homebridge-llm-control) · [npm](https://www.npmjs.com/package/homebridge-llm-control) · [Project page](https://theos2node.github.io/homebridge-llm-control/)
+![GitHub Contribution Graph](https://gitlyy.vercel.app/api/contribution?username=theos2node&hide_border=true)
 
-## Other selected projects
+## What I'm Building
 
-- [Full Whisper Dictation for Mac](https://github.com/theos2node/Full-Whisper-Dictation-for-Mac) — local speech-to-text for macOS.
-- [iPadOS Inventory Taker](https://github.com/theos2node/ipados-inventory-taker) — inventory capture with barcode scanning and photo-assisted recognition.
+- **Practical product software** — tools shaped around real operators and real constraints
+- **Local-first systems** — useful offline, private by default, and resilient without a hosted dependency
+- **Focused interfaces** — turning messy workflows into small, dependable actions
 
-## Contact
+## Connect
 
-[LinkedIn](https://www.linkedin.com/in/theo-pasquier/)
+[![X](https://img.shields.io/badge/-theos2node-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/theos2node)
+[![LinkedIn](https://img.shields.io/badge/-Theo_Pasquier-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/theo-pasquier/)
+[![Website](https://img.shields.io/badge/-BarsBookkeeper-FF6B35?style=flat-square&logo=safari&logoColor=white)](https://barsbookkeeper.com/)
+[![GitHub](https://img.shields.io/badge/-Follow-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/theos2node)
