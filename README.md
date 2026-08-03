@@ -2,7 +2,7 @@
 
 📍 **United States** | 💻 **Software Engineer** | 📱 **Mac & iOS Developer**
 
-Actively building and maintaining open-source software and running BarsBookkeeper.
+Actively building and maintaining open-source software and running BarsBookkeeper
 
 ![Swift](https://img.shields.io/badge/-Swift-FA7343?style=flat-square&logo=swift&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
